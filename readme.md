@@ -30,7 +30,7 @@ real_example.py 里面包含了三个爬虫，分别是用来爬取 **豆瓣网*
 >* 初始URL为：<https://www.zhipin.com/> 以获取必要的登陆Cookie
 >* 爬取URL为：<https://www.zhipin.com/job_detail/?query=python+%E7%88%AC%E8%99%AB&scity=101020100&source=2> 以及该页面下工作详情的子页面
 >* 具有自动翻页功能，能记录来自第一次访问主页的Cookie，并将Cookie用在访问其他子页面上
-
+>
 >PS：  
 >困难：该网页使用了 *禁用IP的防爬虫策略*   
 >解决：所以我在中间件中写的`Xici_ip_middleware`类就是用来使用多个代理IP以突破这种防爬虫策略，代理IP是从 <http://www.xdaili.cn/> 买的
@@ -51,6 +51,7 @@ real_example.py 里面包含了三个爬虫，分别是用来爬取 **豆瓣网*
 	
 	
 <br>
+
 ## 需求
 1. 该代码为python3格式
 2. 需要安装python3, scrapy框架，requests库，
