@@ -23,7 +23,7 @@ real_example.py 里面包含了三个爬虫，分别是用来爬取 **豆瓣网*
    
 <br>
 **boss直聘**  
-爬取 boss直聘 所有有关 ==python爬虫== 的职位信息
+爬取 boss直聘 所有有关 <MARK>python爬虫</MARK> 的职位信息
 
 >* 初始URL为：<https://www.zhipin.com/> 以获取必要的登陆Cookie
 >* 爬取URL为：<https://www.zhipin.com/job_detail/?query=python+%E7%88%AC%E8%99%AB&scity=101020100&source=2> 以及该页面下工作详情的子页面
@@ -35,9 +35,9 @@ real_example.py 里面包含了三个爬虫，分别是用来爬取 **豆瓣网*
 
 <br>
 **拉勾网**  
-爬取 拉勾网 所有有关 ==python爬虫== 的职位信息
+爬取 拉勾网 所有有关 <MARK>python爬虫</MARK> 的职位信息
 
->* 初始URL为：<https://www.lagou.com/jobs/positionAjax.json?px=default&needAddtionalResult=false> 请求方法必须是==POST请求==，并带有相关Cookies 和 该网站需要的其他请求头 
+>* 初始URL为：<https://www.lagou.com/jobs/positionAjax.json?px=default&needAddtionalResult=false> 请求方法必须是<MARK>POST请求</MARK>，并带有相关Cookies 和 该网站需要的其他请求头 
 >* 爬取URL为：<https://www.lagou.com/jobs/.html> 要带Cookies访问
 >* 具有自动翻页功能
 >
