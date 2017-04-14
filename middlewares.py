@@ -54,11 +54,13 @@ class ScrapyExampleSpiderMiddleware(object):
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
 
+
+
 import random, requests, json
 class Xici_ip_middleware(object):
 
     r=requests.get('http://www.xdaili.cn/ipagent/greatRecharge/getGreatIp?spiderId=b7178b0530eb4a1da1984b75ec8e5e4b&orderno=YZ20173294180nHnBqJ&returnType=2&count=20')
-    print(r.text)
+    print(r.text)   # 提取20个代理公网IP备用
 
     proxy_ip_list=[]
     ip_information=json.loads(r.text)["RESULT"]
@@ -69,32 +71,9 @@ class Xici_ip_middleware(object):
         proxy_ip_list.append(proxy_ip)
 
 
-    # proxy_ip_list=[
-    #     "60.182.239.186:47198" ,
-    #     "123.161.154.226:36387",
-    #     "123.163.21.177:37702",
-    #     "180.123.35.172:39890",
-    #     "183.135.252.217:29663",
-    #     "114.101.129.66:34385",
-    #     "121.204.102.83:38033",
-    #     "114.232.106.23:23111",
-    #     "125.113.252.67:29343",
-    #     "117.30.69.101:26669",
-    #     "1.199.195.149:24616",
-    #     "113.121.184.106:27496",
-    #     "115.215.49.67:29109",
-    #     "171.8.170.253:29758",
-    #     "140.224.76.185:25370",
-    #     "113.121.189.192:28482",
-    #     "222.76.118.17:22113",
-    #     "115.213.224.149:20395",
-    #     "114.231.71.46:34915",
-    #     "222.89.81.28:36378",
-    # ]
-
     def process_request(self, request, spider):
         # Set the location of the proxy
-        proxy_ip =   "https://"  +  random.choice(self.proxy_ip_list).strip()
+        proxy_ip =   "https://"  +  random.choice(self.proxy_ip_list).strip()   # 如果不是HTTPS的协议的话，要用HTTP开头哦
         request.meta['proxy'] = proxy_ip
         print('+'*8, 'the Current ip address is', proxy_ip, '+'*8)
 
