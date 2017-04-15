@@ -60,13 +60,52 @@ real_example.py 里面包含了三个爬虫，分别是用来爬取 **豆瓣网*
 3. 推荐安装 Mongo数据库
 
 
+<br> 
+
+## 操作方法  
+爬取 **豆瓣网**
+
+1. 开启 settings.py 文件中 豆瓣网 的pipeline，如下图：  
+   将红框中那一行的注释去掉即可
+   ![豆瓣网配置](http://www.samael.tk/douban_settings.png)
+2. 在 scrapy_example 的目录下输入：`scrapy crawl douban_book`
+
+PS: 爬取的信息默认存储在 本地 mongo数据库 的 scrapy_test 数据库中  
+爬取信息如下：  
+![豆瓣_mongo](http://www.samael.tk/douban_book_output.png)
+
+<br>
+
+爬取 **boss直聘**
+
+1. 开启 settings.py 文件中 boss直聘网 的pipeline，如下图：   
+   将红框中那一行的注释去掉即可
+   ![boss直聘配置](http://www.samael.tk/boss_zhiping_settings.png)
+2. 在 scrapy_example 的目录下输入：`scrapy crawl bosszhiping_query`  
+	默认是搜索`python 爬虫`相关的职位信息，如果需要搜索其他职位信息，可以输入 `scrapy crawl bosszhiping_query -a key_word=<关键词> `  
+	例如要搜索`前端`相关的职位信息，则输入`scrapy crawl bosszhiping_query -a key_word=前端 `
+
+PS:  pipeline的配置是把boss直聘网中爬取的信息存入mongo数据库，middlewares的配置是开启代理IP以防止本地IP被反爬虫机制ban  
+爬取信息如下：  
+![boss_mongo](http://www.samael.tk/boss_zhiping_output.png)
+
+<br> 
 
 
 
+爬取 **拉勾网**
 
+1. 开启 settings.py 文件中 拉勾网 的pipeline，如下图：
+   将红框中那一行的注释去掉即可
+   ![拉勾1](http://www.samael.tk/lagou_settings1.png)
+   ![拉勾2](http://www.samael.tk/lagou_settings2.png)
+2. 在 scrapy_example 的目录下输入：`scrapy crawl lagou_query`
+	默认是搜索`python 爬虫`相关的职位信息，如果需要搜索其他职位信息，可以输入 `scrapy crawl lagou_query -a key_word=<关键词> `  
+	例如要搜索`前端`相关的职位信息，则输入`scrapy crawl lagou_query -a key_word=前端 `
 
-
-
+PS: 爬虫爬取的时间会比较长，因为我开启了6秒的延迟。也可以关闭延迟时间，使用  boss直聘 中的代理IP中间件来爬取，以提高效率  
+爬取信息如下：  
+![lagou_output](http://www.samael.tk/lagou_output.png)
 
 
 
